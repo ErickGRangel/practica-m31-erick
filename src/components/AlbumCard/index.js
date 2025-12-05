@@ -1,23 +1,21 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import { AlbumCardLink, AlbumImage, AlbumTitle, AlbumInfo } from './styles';
 
 const AlbumCard = ({ album }) => {
   return (
-    <Link to={`/album/${album.idAlbum}`} state={{ album }} className="album-card">
+    <AlbumCardLink to={`/album/${album.idAlbum}`} state={{ album }}>
       {album.strAlbumThumb ? (
-        <img
-          src={`${album.strAlbumThumb}/medium`}
+        <AlbumImage
+          src={`${album.strAlbumThumb}`}
           alt={album.strAlbum}
-          className="album-cover"
         />
       ) : (
-        <div className="album-noimage">No image</div>
+        <p>No image</p>
       )}
-      <h3 className="album-title">{album.strAlbum}</h3>
-      <p className="album-artist">{album.strArtist}</p>
-      <p className="album-year">{album.intYearReleased || 'Año desconocido'}</p>
-    </Link>
+      <AlbumTitle>{album.strAlbum}</AlbumTitle>
+      <AlbumInfo>{album.strArtist}</AlbumInfo>
+      <AlbumInfo>{album.intYearReleased || 'Año desconocido'}</AlbumInfo>
+    </AlbumCardLink>
   );
 };
 
-export default AlbumCard;
+export default AlbumCard;  

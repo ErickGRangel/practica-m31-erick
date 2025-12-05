@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import SearchBar from '../SearchBar';
 import AlbumGrid from '../AlbumGrid';
 import useFetch from '../../hooks/useFetch';
+import { HomeLoading, HomeTitle } from './styles';
 
 const HomePage = () => {
   const [artist, setArtist] = useState('');
@@ -18,21 +19,21 @@ const HomePage = () => {
   };
 
   return (
-    <div className="homepage-container">
-      <h1 className="hometitle">BIBLIOTECA MUSICAL</h1>
-      <div className="homepage">
+    <>
+      <HomeTitle>BIBLIOTECA MUSICAL</HomeTitle>
+      <div>
         <SearchBar
           value={artist}
           onChange={(val) => setArtist(val)}
           onSubmit={handleSubmit}
         />
 
-        {loading && <p className="loading">Cargando álbumes...</p>}
+        {loading && <HomeLoading>Cargando álbumes...</HomeLoading>}
         {error && <p className="error">Error al cargar los álbumes.</p>}
 
         {!loading && !error && <AlbumGrid albums={albums} />}
       </div>
-    </div>
+    </>
   );
 };
 

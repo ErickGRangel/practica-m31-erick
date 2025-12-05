@@ -1,17 +1,28 @@
 import React from 'react';
 import AlbumCard from '../AlbumCard';
+import { AlbumGridContainer } from './syles';
 
 const AlbumGrid = ({ albums }) => {
   if (!albums || albums.length === 0) {
-    return <p className="no-results">No se encontraron álbumes.</p>;
+    return (
+      <p
+        style={{
+          textAlign: 'center',
+          margin: '20px 0',
+          color: '#fff'
+        }}
+      >
+        No se encontraron álbumes.
+      </p>
+    );
   }
 
   return (
-    <div className="album-grid">
+    <AlbumGridContainer>
       {albums.map((album) => (
         <AlbumCard key={album.idAlbum} album={album} />
       ))}
-    </div>
+    </AlbumGridContainer>
   );
 };
 

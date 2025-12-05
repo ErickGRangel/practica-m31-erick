@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import useFetch from '../../hooks/useFetch';
+import { SongDescription, SongDetailContainer, SongInfo, SongTitle, SongScore, SongDescriptionText,SongLoading} from './styles';
 
 const SongDetail = () => {
   const { id } = useParams();
@@ -12,42 +13,47 @@ const SongDetail = () => {
   const album = data?.album?.[0];
 
   if (loading) {
-    return <p className="loading">Cargando álbum...</p>;
+    return <SongLoading>Cargando álbum...</SongLoading >;
   }
 
   if (error) {
     return (
-      <p className="error">
+      <SongLoading>
         Error al cargar los detalles del álbum.
-      </p>
+      </SongLoading>
     );
   }
 
   if (!album) {
-    return <p>Álbum no encontrado.</p>;
+    return <SongLoading>Álbum no encontrado.</SongLoading>;
   }
 
   return (
-    <div className="song-detail">
-      <div className="album-info">
-        <h1>{album.strAlbum}</h1>
-        <p><strong>Artista:</strong> {album.strArtist}</p>
-        <p><strong>Año:</strong> {album.intYearReleased || 'Desconocido'}</p>
-        <p><strong>Género:</strong> {album.strGenre || 'Desconocido'}</p>
-        <p><strong>Disquera:</strong> {album.strLabel || 'Desconocida'}</p>
+    <>
+      <SongDetailContainer>
+        <SongTitle>{album.strAlbum}</SongTitle>
+        <SongInfo><strong>Artista:</strong> {album.strArtist}</SongInfo>
+        <SongInfo><strong>Año:</strong> {album.intYearReleased || 'Desconocido'}</SongInfo>
+        <SongInfo><strong>Género:</strong> {album.strGenre || 'Desconocido'}</SongInfo>
+        <SongInfo><strong>Disquera:</strong> {album.strLabel || 'Desconocida'}</SongInfo>
 
-        {album.intScore && (
-          <p><strong>Calificación:</strong> {album.intScore}/100</p>
-        )}
+       {album.intScore !== undefined && (
+        <SongInfo>
+          <strong>Calificación:</strong>
+          <SongScore score={Number(album.intScore)}>
+            {album.intScore}/10
+          </SongScore>
+        </SongInfo>
+      )}
 
         {album.strDescriptionEN && (
-          <div className="album-description">
-            <h3>Descripción</h3>
-            <p>{album.strDescriptionEN}</p>
-          </div>
+          <SongDescription>
+            <SongTitle>Descripción</SongTitle>
+            <SongDescriptionText>{album.strDescriptionEN}</SongDescriptionText>
+          </SongDescription>
         )}
-      </div>
-    </div>
+      </SongDetailContainer>
+    </>
   );
 };
 
