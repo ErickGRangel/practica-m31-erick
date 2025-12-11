@@ -4,6 +4,7 @@ import AlbumGrid from '../AlbumGrid';
 import useFetch from '../../hooks/useFetch';
 import { HomeLoading, HomeTitle } from './styles';
 
+
 const HomePage = () => {
   const [artist, setArtist] = useState('');
 

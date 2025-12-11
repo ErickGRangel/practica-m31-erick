@@ -11,4 +11,6 @@ const HomeLoading = styled.p`
 `;
 
 
-export { HomeTitle, HomeLoading };
+
+
+export { HomeTitle, HomeLoading,};

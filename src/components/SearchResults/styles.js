@@ -39,4 +39,19 @@ const AlbumInfo = styled.p`
     text-align: center;
 `;
 
-export { AlbumCardLink, AlbumImage, AlbumTitle, AlbumInfo }; 
+ const AddButton = styled.button`
+  margin-top: 8px;
+  padding: 6px 12px;
+  background: rgba(194, 148, 24, 1);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+
+  &:hover {
+    background: rgba(194, 149, 24, 0.72);
+  }
+`;
+
+export { AlbumCardLink, AlbumImage, AlbumTitle, AlbumInfo, AddButton }; 

@@ -1,5 +1,6 @@
 import React from 'react';
-import { SearchBarForm, SearchInput, SearchButton } from './styles';
+import { SearchBarForm, SearchInput, SearchButton,LibraryButton } from './styles';
+import { Link } from 'react-router-dom';
 
 const SearchBar = ({ value, onChange, onSubmit }) => {
   return (
@@ -14,6 +15,9 @@ const SearchBar = ({ value, onChange, onSubmit }) => {
         placeholder="Ej. Coldplay, Oasis..."
       />
       <SearchButton type="submit">Buscar</SearchButton>
+        <LibraryButton as={Link} to="/library">
+          Ver mi biblioteca
+        </LibraryButton>
     </SearchBarForm>
   );
 };
