@@ -1,6 +1,5 @@
-import React from 'react';
-import AlbumCard from '../AlbumCard';
-import { AlbumGridContainer } from './syles';
+import SearchResults from '../SearchResults';
+import { AlbumGridContainer } from './styles';
 
 const AlbumGrid = ({ albums }) => {
   if (!albums || albums.length === 0) {
@@ -20,7 +19,7 @@ const AlbumGrid = ({ albums }) => {
   return (
     <AlbumGridContainer>
       {albums.map((album) => (
-        <AlbumCard key={album.idAlbum} album={album} />
+        <SearchResults key={album.idAlbum} album={album} />
       ))}
     </AlbumGridContainer>
   );

@@ -1,10 +1,8 @@
-import React from 'react';
 import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { addSong, removeSong } from '../../redux/libraryActions';
-import { AlbumCardLink, AlbumImage, AlbumTitle, AlbumInfo, AddButton } from './styles';
+import { addSong} from '../../redux/libraryActions';
+import { SearchResultsLink, AlbumImage, AlbumTitle, AlbumInfo, AddButton } from './styles';
 
-const AlbumCard = ({ album }) => {
+const SearchResults = ({ album }) => {
   const dispatch = useDispatch();
 
   const handleAddToLibrary = () => {
@@ -18,7 +16,7 @@ const AlbumCard = ({ album }) => {
   };
 
   return (
-    <AlbumCardLink to={`/album/${album.idAlbum}`} state={{ album }}>
+    <SearchResultsLink to={`/album/${album.idAlbum}`} state={{ album }}>
       {album.strAlbumThumb ? (
         <AlbumImage src={album.strAlbumThumb} alt={album.strAlbum} />
       ) : (
@@ -34,8 +32,8 @@ const AlbumCard = ({ album }) => {
       }}>
         Agregar a mi biblioteca
       </AddButton>
-    </AlbumCardLink>
+    </SearchResultsLink>
   );
 };
 
-export default AlbumCard;
+export default SearchResults;

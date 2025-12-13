@@ -1,10 +1,10 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-const AlbumCardLink = styled(Link)`
+const SearchResultsLink = styled(Link)`
   width: 90%; 
   text-decoration: none;
-  background-color: #1e1e1e;;
+  background-color: #1e1e1e;
   border-radius: 8px;
   padding: 12px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
@@ -15,6 +15,7 @@ const AlbumCardLink = styled(Link)`
   justify-content: space-between;
   &:hover {
     transform: translateY(-5px);
+    }
 `;
 
   const AlbumImage = styled.img`
@@ -54,4 +55,4 @@ const AlbumInfo = styled.p`
   }
 `;
 
-export { AlbumCardLink, AlbumImage, AlbumTitle, AlbumInfo, AddButton }; 
+export { SearchResultsLink, AlbumImage, AlbumTitle, AlbumInfo, AddButton }; 
