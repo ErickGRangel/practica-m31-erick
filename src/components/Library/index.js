@@ -1,10 +1,9 @@
-import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { removeSong } from '../../redux/libraryActions';
+import { removeSong } from '../../redux/slices/librarySlice';
 import { LibraryContainer, LibraryItem, RemoveButton } from './styles';
 
 const Library = () => {
-  const library = useSelector((state) => state.library);
+  const library = useSelector((state) => state.library.library);
   const dispatch = useDispatch();
 
   const handleRemove = (id) => {
@@ -20,7 +19,7 @@ const Library = () => {
       <h2>Mi Biblioteca</h2>
       {library.map((item) => (
         <LibraryItem key={item.id}>
-          <div >
+          <div>
             <strong>{item.title}</strong> — {item.artist}
             <br />
             <em>Álbum: {item.album}</em>

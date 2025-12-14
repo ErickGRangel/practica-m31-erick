@@ -1,16 +1,35 @@
 import styled from 'styled-components';
-const HomeTitle = styled.h1`
-    display: flex;
-    justify-content: center;
-    color: #fff
+
+export const HomeTitle = styled.h1`
+  text-align: center;
+  color: white;
+  margin: 20px 0;
 `;
 
-const HomeLoading = styled.p`
-   text-align: center;
-    color: #fff;
+export const HomeLoading = styled.p`
+  text-align: center;
+  color: #ccc;
+  margin: 20px 0;
 `;
 
+export const HomeButton = styled.button`
+  display: block;
+  margin: 0 auto 24px;
+  padding: 10px 20px;
+  background: #5d409b;
+  color: white;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  text-decoration: none;
+  width: fit-content;
 
+  &:hover {
+    background: #4a307a;
+  }
+`;
 
-
-export { HomeTitle, HomeLoading,};
+export const ControlContainer = styled.div`
+  display: flex;
+  justify-content: center;
+`;

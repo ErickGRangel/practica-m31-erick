@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { addSong} from '../../redux/libraryActions';
+import { addSong } from '../../redux/slices/librarySlice';
 import { SearchResultsLink, AlbumImage, AlbumTitle, AlbumInfo, AddButton } from './styles';
 
 const SearchResults = ({ album }) => {
@@ -7,8 +7,8 @@ const SearchResults = ({ album }) => {
 
   const handleAddToLibrary = () => {
     const songItem = {
-      id: album.idAlbum,           
-      title: album.strAlbum,      
+      id: album.idAlbum,
+      title: album.strAlbum,
       artist: album.strArtist,
       album: album.strAlbum
     };
@@ -26,10 +26,13 @@ const SearchResults = ({ album }) => {
       <AlbumInfo>{album.strArtist}</AlbumInfo>
       <AlbumInfo>{album.intYearReleased || 'Año desconocido'}</AlbumInfo>
       
-      <AddButton type="button" onClick={(e) => {
-        e.preventDefault();
-        handleAddToLibrary();
-      }}>
+      <AddButton
+        type="button"
+        onClick={(e) => {
+          e.preventDefault();
+          handleAddToLibrary();
+        }}
+      >
         Agregar a mi biblioteca
       </AddButton>
     </SearchResultsLink>
