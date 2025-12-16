@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchAlbums, resetResults } from '../../redux/slices/searchSlice';
+import { fetchSongs, resetResults } from '../../redux/slices/searchSlice';
 import AlbumGrid from '../AlbumGrid';
 import SearchBar from '../SearchBar';
 import { HomeLoading, HomeTitle, HomeButton, ControlContainer } from './styles';
@@ -20,7 +20,7 @@ const HomePage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (artist.trim()) {
-      dispatch(fetchAlbums(artist.trim()));
+      dispatch(fetchSongs(artist.trim()));
     }
   };
 

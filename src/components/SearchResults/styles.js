@@ -41,6 +41,7 @@ const AlbumInfo = styled.p`
 `;
 
  const AddButton = styled.button`
+  font-family: 'Monserrat', sans-serif; 
   margin-top: 8px;
   padding: 6px 12px;
   background: rgba(194, 148, 24, 1);

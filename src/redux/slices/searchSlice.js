@@ -1,8 +1,9 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-export const fetchAlbums = createAsyncThunk(
-  'search/fetchAlbums',
+
+export const fetchSongs = createAsyncThunk(
+  'search/fetchSongs',
   async (artist, { rejectWithValue }) => {
     try {
       const proxy = 'https://corsproxy.io/?';
@@ -33,15 +34,15 @@ const searchSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(fetchAlbums.pending, (state) => {
+      .addCase(fetchSongs.pending, (state) => {
         state.loading = true;
         state.error = null;
       })
-      .addCase(fetchAlbums.fulfilled, (state, action) => {
+      .addCase(fetchSongs.fulfilled, (state, action) => {
         state.loading = false;
         state.results = action.payload;
       })
-      .addCase(fetchAlbums.rejected, (state, action) => {
+      .addCase(fetchSongs.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
       });
