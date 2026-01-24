@@ -1,3 +1,27 @@
+Descripción
+Es una aplicación web que permite buscar álbumes de música por nombre de artista y gestionar una colección personal de álbumes guardados. La aplicación obtiene información de álbumes desde TheAudioDB API y la presenta a través de una interfaz React responsiva.
+
+Tecnologías Utilizadas
+Frontend Framework
+React 19.2.0 - Biblioteca principal para desarrollo basado en componentes
+React DOM 19.2.0 - Renderer de React para aplicaciones web
+React Router DOM 7.9.6 - Enrutamiento del lado del cliente y navegación 
+Gestión de Estado
+Redux 5.0.1 - Contenedor de estado centralizado
+Redux Toolkit 2.11.1 - Utilidades y patrones modernos de Redux
+React Redux 9.2.0 - Bindings de React para Redux
+Estilos y HTTP
+Styled Components 6.1.19 - Solución de CSS-in-JS con soporte de temas
+Axios 1.13.2 - Cliente HTTP basado en promesas para peticiones API 
+
+Los usuarios pueden buscar álbumes por nombre de artista desde la página principal
+Los usuarios pueden agregar álbumes a su biblioteca personal Y eliminar álbumes desde la vista de biblioteca
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
